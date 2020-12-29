@@ -44,10 +44,6 @@ for(i in 1:500){
   last_run <- Sys.time()
 }
 
-# SAVE LAST RUN ####
-
-write_rds(last_run, file = 'last_run.rds')
-
 # SAVE FULLY UNESTED & ADDED TIME INTELLIGENCE DF ####
 
 dat <- df %>%
@@ -70,31 +66,11 @@ dat <- df %>%
          month_num = month(released),
          quarter_released = quarter(released, with_year = TRUE))
 
-write_rds(dat, file = 'dat.rds')
-
 # MAX & MIN VALUES SAVE ####
 
 released_max <- max(dat$released)
-write_rds(dat, file = 'released_max.rds')
-
 released_min <- min(dat$released)
-write_rds(dat, file = 'released_min.rds')
-
 num_rating_max <- max(dat$ratings_count)
-write_rds(dat, file = 'num_rating_max.rds')
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
