@@ -6,10 +6,11 @@
 
 # LOAD PACKAGES ####
 
-library(httr)
-library(jsonlite)
-library(tidyverse)
-library(lubridate)
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(httr,
+               jsonlite,
+               tidyverse,
+               lubridate)
 
 # CALL API, LOOP THROUGH PAGES & COMBINE ####
 
