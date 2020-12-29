@@ -1,14 +1,14 @@
 # LOAD PACKAGES ####
 
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(pacman,              # For loading packages
-               lubridate,           # Working with dates
-               shiny,               # Creating shiny apps
-               shinydashboard,      # Creating shiny dashboards
-               DT,                  # Creating interactive tables
-               tidyverse)           # For many reasons
+library(shiny)
+library(shinydashboard)
+library(tidyverse)
+library(DT)
+library(lubridate)
+library(viridisLite)
+library(whisker)
 
-## UI ####
+# UI ####
 
 ui <- dashboardPage(
   skin = 'black',

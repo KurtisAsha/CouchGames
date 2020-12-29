@@ -6,24 +6,10 @@
 
 # LOAD PACKAGES ####
 
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(pacman,     # For loading packages
-               httr,       # To call api url
-               jsonlite,   # For dealing with json data
-               tidyverse,  # For so many reasons
-               lubridate)  # For working with dates
-              
-               
-base <- "https://api.rawg.io/api/games?tags=co-op&page_size=40&page="
-df <-  tibble (id=integer(),
-               name=character(),
-               released=lubridate::ymd(),
-               rating=double(),
-               ratings_count=integer(),
-               metacritic=integer(),
-               playtime=integer(), 
-               genres=list(character()),
-               platforms=list(character()))
+library(httr)
+library(jsonlite)
+library(tidyverse)
+library(lubridate)
 
 # CALL API, LOOP THROUGH PAGES & COMBINE ####
 
@@ -95,14 +81,6 @@ write_rds(dat, file = 'released_min.rds')
 
 num_rating_max <- max(dat$ratings_count)
 write_rds(dat, file = 'num_rating_max.rds')
-
-# CLEAN #### 
-rm(list = ls()) 
-detach("package:datasets", unload = TRUE)
-dev.off()  # But only if there IS a plot
-p_unload(all) # Remove all add-ons
-cat("\014")  # ctrl+L
-
 
 
 
