@@ -12,6 +12,10 @@ pacman::p_load(httr,
                tidyverse,
                lubridate)
 
+# SET DF TO NULL ####
+
+df <- df[c(),]
+
 # CALL API, LOOP THROUGH PAGES & COMBINE ####
 
 for(i in 1:500){
@@ -27,7 +31,8 @@ for(i in 1:500){
   txtdata   <- httr::content(resp, as = 'text',
                              encoding = "UTF-8")            # Parsing it to JSON
   txtdata2  <- jsonlite::fromJSON(txtdata)                  # Convert from JSON to a list
-  df2   <- txtdata2$results %>%
+  df2   <- txtdata2$results
+  df2   <- df2 %>% 
     mutate(released = lubridate::ymd(released)) %>%
     select(id,
            name,
