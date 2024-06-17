@@ -1,7 +1,5 @@
 # CouchGames
 
-https://kurtisasha.shinyapps.io/couchgames/
-
 ## Personal Project
 
 Hey. This is a personal project exploring coop "couch" games in an effort to convince myself couch games are still alive and kicking. Which they're not. This will be my first completed R coded project after teaching myself for the last 8 months.<br><br>
